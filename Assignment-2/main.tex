@@ -167,71 +167,34 @@ Using \ref{equation-1} in \ref{equation-2}, we can see that
 \begin{align} \label{equation-3}
     G(x)=F(x/2)
 \end{align}
-Now, lets examine the options
-\begin{enumerate}
-    \item \begin{align}
-              F(x)-G(x) \leq 0
-          \end{align}
-          For $x \geq 0$
-          \begin{align}
-              x/2 \leq x
-          \end{align}
-          As, F is a cumulative distribution function, it is non-decreasing.
-          Thus,
-          \begin{align}
-              F(x/2) \leq F(x)
-          \end{align}
-          Using \ref{equation-3},
-          \begin{align}
-              G(x) \leq F(x)
-          \end{align}
-          Or,
-          \begin{align} \label{equation-4}
-              F(x)-G(x) \geq 0         
-          \end{align}
-          This contradicts option-1, so its wrong.
-    \item \begin{align}
-              F(x)-G(x) \geq 0
-          \end{align}
-          For $x \leq 0$
-          \begin{align}
-              x \leq x/2
-          \end{align}
-          As, F is a cumulative distribution function, it is non-decreasing.
-          Thus,
-          \begin{align}
-              F(x) \leq F(x/2)
-          \end{align}
-          Using \ref{equation-3},
-          \begin{align}
-              F(x) \leq G(x)
-          \end{align}
-          Or,
-          \begin{align}
-              F(x)-G(x) \leq 0
-          \end{align}
-          This contradicts option-2, so its wrong.
-    \item \begin{align}
-              (F(x)-G(x))x \leq 0
-          \end{align}
-          For $x \geq 0$, we saw that $F(x)-G(x) \geq 0$
-          As both $x$ and $F(x)-G(x)$ are positive simultaneously, their product will also be positive. Thus,
-          \begin{align}
-              (F(x)-G(x))x \geq 0
-          \end{align}
-          This contradicts option-3, so its wrong.
-
-\newpage
-
-    \item \begin{align}
-              (F(x)-G(x))x \geq 0
-          \end{align}
-           We saw that for $x \geq 0$, $F(x)-G(x) \geq 0$ and for $x \leq 0$, $F(x)-G(x) \leq 0$.
-          In either case, $x$ and $F(x)-G(x)$ have same sign.
-          So, their product will be positive,
-          \begin{align}
-              (F(x)-G(x))x \geq 0
-          \end{align}
-          This proves that option-4 is true for all x.
-\end{enumerate}
+So,
+\begin{align}
+    F(x)-G(x)=F(x)-F(x/2)
+\end{align}
+As F is Cumulative Distribution Function, it is non-decreasing.\\
+That means for $x \geq y$, $F(x) \geq F(y)$.\\ \\
+Using this, we can form the following table:
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Case & $F(x)-F(x/2)$ & $(F(x)-F(x/2))x$ \\
+        \hline
+        $x \geq 0$ & $\geq 0$ & $\geq 0$ \\
+        \hline
+        $x \leq 0$ & $\leq 0$ & $\geq 0$ \\
+        \hline
+    \end{tabular}
+    \caption{}
+    \label{table-1}
+\end{table}\\
+From the table we can see that for any value of $x$,
+\begin{align}
+    (F(x)-F(x/2))x \geq 0
+\end{align}
+Or, using \ref{equation-3},
+\begin{align}
+    (F(x)-G(x))x \geq x
+\end{align}
+So, option 4 is correct.
 \end{document}
