@@ -1,5 +1,8 @@
 from scipy.stats import bernoulli as ber
 
+import matplotlib.pyplot as plot
+
+theor_prob = 0.042      # theoritical probability
 
 dataset_size = 50000    # total number of trials
 num_of_tosses = 20
@@ -27,6 +30,15 @@ for i in range(dataset_size):
     if head_count == 4 and tail_count == 4:
         right_toss_set+=1
 
-prob = right_toss_set/dataset_size
+sim_prob = right_toss_set/dataset_size      # simulated probability
 
-print("Required probability :", prob)
+print("Simulated probability :", sim_prob)
+print("Theoritical probability :", theor_prob)
+
+plot.bar(0.00, theor_prob, color = 'red', width = 0.25, label = 'Theoretical')
+plot.bar(1, sim_prob, color = 'blue', width = 0.25, label = 'Simulated')
+plot.xlabel('Cases')
+plot.ylabel('Probabilities')
+
+plot.legend()
+plot.show()
