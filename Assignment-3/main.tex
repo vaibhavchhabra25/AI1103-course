@@ -1,0 +1,275 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+
+\usepackage{setspace}
+\usepackage{gensymb}
+\singlespacing
+\usepackage[cmex10]{amsmath}
+
+\usepackage{amsthm}
+
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{bm}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+
+\usepackage{longtable}
+\usepackage{multirow}
+
+\usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{steinmetz}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{verbatim}
+\usepackage{tfrupee}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{tkz-euclide}
+
+\usetikzlibrary{calc,math}
+\usepackage{listings}
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+    \usepackage{lscape}     
+\usepackage{multicol}
+\usepackage{chngcntr}
+
+\DeclareMathOperator*{\Res}{Res}
+
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\def\inputGnumericTable{}                                 %%
+
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\begin{document}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}[problem]{Definition}
+
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+\bibliographystyle{IEEEtran}
+\raggedbottom
+\setlength{\parindent}{0pt}
+\providecommand{\mbf}{\mathbf}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+%\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\cosec}{\,\text{cosec}\,}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\newcommand{\mydet}[1]{\ensuremath{}}
+\numberwithin{equation}{subsection}
+\makeatletter
+\@addtoreset{figure}{problem}
+\makeatother
+\let\StandardTheFigure\thefigure
+\let\vec\mathbf
+\renewcommand{\thefigure}{\theproblem}
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+\vspace{3cm}
+\title{Assignment 3}
+\author{Vaibhav Chhabra \\ AI20BTECH11022}
+\maketitle
+\newpage
+\bigskip
+\renewcommand{\thefigure}{\theenumi}
+\renewcommand{\thetable}{\theenumi}
+Download all latex codes from 
+\begin{lstlisting}
+    https://github.com/vaibhavchhabra25/AI1103-course/blob/main/Assignment-3/main.tex
+\end{lstlisting}
+\section{Problem}
+(GATE 2001 (MA), Q. 2.24)
+Let $(X,Y)$ be a two-dimensional random variable such that $E(X)=E(Y)=1/2$, $Var(X)=Var(Y)=1$ and $Cov(X,Y)=1/2$.
+Then, $P(|X-Y|>6)$ is
+\begin{enumerate}
+\begin{multicols}{2}
+    \item less than 1/6
+    \item equal to 1/2
+    \item equal to 1/3
+    \item greater than 1/2
+\end{multicols}
+\end{enumerate}
+
+\section{Solution}
+Given,
+\begin{align} \label{eq-1}
+    E(X)=E(Y)=3
+\end{align}
+\begin{align}
+    Var(X)=Var(Y)=1
+\end{align}
+\begin{align}
+    Cov(X,Y)=1/2
+\end{align}
+Now,
+\begin{align}
+    Var(X)=E(X^2)-(E(X))^2
+\end{align}
+Substituting given values, we get,
+\begin{align}
+    1=E(X^2)-3^2
+\end{align}
+So,
+\begin{align} \label{eq-2}
+    E(X^2)=10
+\end{align}
+Similarly for $Y$,
+\begin{align} \label{eq-3}
+    E(Y^2)=10
+\end{align}
+Also,
+\begin{align}
+    Cov(X,Y)=E(XY)-E(X)E(Y)
+\end{align}
+Substituting given values, we get,
+\begin{align}
+    1/2=E(XY)-(3)(3)
+\end{align}
+So,
+\begin{align} \label{eq-4}
+    E(XY)=19/2
+\end{align}
+
+Let $Z$ be a random variable defined as
+\begin{align} \label{eq-5}
+    Z=X-Y
+\end{align}
+Then using \eqref{eq-1},
+\begin{align} \label{eq-6}
+    E(Z)=E(X-Y)=E(X)-E(Y)=0
+\end{align}
+Now, using \eqref{eq-6}
+\begin{align}
+    Var(Z)=E(Z^2)-(E(Z))^2=E(Z^2)
+\end{align}
+\begin{align}
+    Var(Z)=E((X-Y)^2)
+\end{align}
+\begin{align}
+    Var(Z)=E(X^2)+E(Y^2)-2E(XY)
+\end{align}
+Using \eqref{eq-2}, \eqref{eq-3} and \eqref{eq-4},
+\begin{align}
+    Var(Z)=10+10-2 \times 19/2
+\end{align}
+\begin{align} \label{eq-7}
+    Var(Z)=1
+\end{align}
+
+\begin{theorem}
+(Chebychev's Inequality)\ Let T be an arbitrary random variable, with finite mean E(T), then for all $a>0$,
+\begin{align}
+    \pr{|T-E(T)| \geq a} \leq \dfrac{Var(T)}{a^2}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Let $A$ be a non-negative random variable and $a>0$ be any real number. Define a new random variable $B$ by
+\begin{align}
+B=  \begin{cases} 
+          a & A \geq a \\
+          0 & A < a
+    \end{cases}
+\end{align}
+Then clearly $B \leq A$ and by monotonicity,
+\begin{align} \label{eq-8}
+    E(B) \leq E(A)
+\end{align}
+\begin{align}
+    E(B)=a\pr{B=a}+0\pr{B=0}
+\end{align}
+\begin{align} \label{eq-9}
+    E(B)=a\pr{A \geq a}
+\end{align}
+By \eqref{eq-8} and \eqref{eq-9},
+\begin{align}
+    a\pr{A \geq a} \leq  E(A)
+\end{align}
+\begin{align} \label{eq-10}
+    \pr{A \geq a} \leq \dfrac{E(A)}{a}
+\end{align}
+Set $A=(T-E(T))^2$. Then,
+\begin{align}
+    \pr{|T-E(T)| \geq a}=\pr{A \geq a^2}
+\end{align}
+Using \eqref{eq-10},
+\begin{align}
+    \pr{|T-E(T)| \geq a} \leq \dfrac{E(A)}{a^2}
+\end{align}
+\begin{align}
+    \pr{|T-E(T)| \geq a} \leq \dfrac{E(T-E(T))^2}{a^2}
+\end{align}
+\begin{align}
+    \pr{|T-E(T)| \geq a} \leq \dfrac{Var(T)}{a^2}
+\end{align}
+\end{proof}
+Applying Chebychev's Inequality for $Z$ with $a=6$, we get,
+\begin{align}
+    \pr{|Z-E(Z)| \geq 6} \leq \dfrac{Var(Z)}{6^2}
+\end{align}
+Using \eqref{eq-6} and \eqref{eq-7},
+\begin{align}
+    \pr{|Z-0| \geq 6} \leq \dfrac{1}{36}
+\end{align}
+As $Z=X-Y$,
+\begin{align}
+    \pr{|X-Y| \geq 6} \leq \dfrac{1}{36}
+\end{align}
+So, option 1 is correct.
+\end{document}
