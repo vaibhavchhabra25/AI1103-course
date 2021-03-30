@@ -35,8 +35,8 @@ sim_prob = right_toss_set/dataset_size      # simulated probability
 print("Simulated probability :", sim_prob)
 print("Theoritical probability :", theor_prob)
 
-plot.bar(0.00, theor_prob, color = 'red', width = 0.25, label = 'Theoretical')
-plot.bar(1, sim_prob, color = 'blue', width = 0.25, label = 'Simulated')
+plot.bar(0.00, theor_prob, color = 'red', width = 0.2, label = 'Theoretical')
+plot.bar(1, sim_prob, color = 'blue', width = 0.2, label = 'Simulated')
 plot.xlabel('Cases')
 plot.ylabel('Probabilities')
 
