@@ -220,41 +220,27 @@ Using \eqref{eq-2}, \eqref{eq-3} and \eqref{eq-4},
 \end{theorem}
 
 \begin{proof}
-Let $A$ be a non-negative random variable and $a>0$ be any real number. Define a new random variable $B$ by
+Let T be a random variable with probablility distribution function $f(T)$ and $a>0$ be any real number.
+Then,
 \begin{align}
-B=  \begin{cases} 
-          a & A \geq a \\
-          0 & A < a
-    \end{cases}
+    \pr{|T-E(T)| \geq a}= \int_{-\infty}^{-E(T)-a}f(T)dT + \nonumber \\  \int_{E(T)+a}^{\infty}f(T)dT
 \end{align}
-Then clearly $B \leq A$ and by monotonicity,
 \begin{align} \label{eq-8}
-    E(B) \leq E(A)
+    \pr{|T-E(T)| \geq a}= \int_{|T-E(T)| \geq a}f(T)dT
 \end{align}
+Now,
 \begin{align}
-    E(B)=a\pr{B=a}+0\pr{B=0}
+    Var(T)= \int_{-\infty}^{\infty}(T-E(T))^2f(T)dT \nonumber \\ \geq \int_{|T-E(T)|\geq a}(T-E(T))^2f(T)dT \nonumber \\ \geq a^2\int_{|T-E(T)|\geq a}f(T)dT
 \end{align}
-\begin{align} \label{eq-9}
-    E(B)=a\pr{A \geq a}
-\end{align}
-By \eqref{eq-8} and \eqref{eq-9},
+So, we finally get,
 \begin{align}
-    a\pr{A \geq a} \leq  E(A)
+    Var(T) \geq a^2\int_{|T-E(T)|\geq a}f(T)dT
 \end{align}
-\begin{align} \label{eq-10}
-    \pr{A \geq a} \leq \dfrac{E(A)}{a}
-\end{align}
-Set $A=(T-E(T))^2$. Then,
+Using \eqref{eq-8},
 \begin{align}
-    \pr{|T-E(T)| \geq a}=\pr{A \geq a^2}
+    Var(T) \geq a^2\pr{|T-E(T)| \geq a}
 \end{align}
-Using \eqref{eq-10},
-\begin{align}
-    \pr{|T-E(T)| \geq a} \leq \dfrac{E(A)}{a^2}
-\end{align}
-\begin{align}
-    \pr{|T-E(T)| \geq a} \leq \dfrac{E(T-E(T))^2}{a^2}
-\end{align}
+Or,
 \begin{align}
     \pr{|T-E(T)| \geq a} \leq \dfrac{Var(T)}{a^2}
 \end{align}
