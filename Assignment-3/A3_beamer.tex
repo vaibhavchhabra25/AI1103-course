@@ -1,0 +1,178 @@
+\documentclass{beamer}
+\usepackage{listings}
+\lstset{
+%language=C,
+frame=single, 
+breaklines=true,
+columns=fullflexible
+}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usetheme{Boadilla}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+
+\title{(GATE 2001 (MA), Q. 2.24)}
+\author{Vaibhav Chhabra - AI20BTECH11022}
+\date{}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Question}
+\begin{block}{}
+Let $(X,Y)$ be a two-dimensional random variable such that $E(X)=E(Y)=3$, $Var(X)=Var(Y)=1$ and $Cov(X,Y)=1/2$.
+Then, $P(|X-Y|>6)$ is
+\begin{enumerate}
+\begin{multicols}{2}
+    \item less than 1/6
+    \item equal to 1/2
+    \item equal to 1/3
+    \item greater than 1/2
+\end{multicols}
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution}
+Given,
+\begin{align} \label{eq-1}
+    E(X)=E(Y)=3
+\end{align}
+\begin{align}
+    Var(X)=Var(Y)=1
+\end{align}
+\begin{align}
+    Cov(X,Y)=1/2
+\end{align}
+Now,
+\begin{align}
+    Var(X)=E(X^2)-(E(X))^2
+\end{align}
+Substituting given values, we get,
+\begin{align}
+    1=E(X^2)-3^2
+\end{align}
+So,
+\begin{align} \label{eq-2}
+    E(X^2)=10
+\end{align}
+Similarly for $Y$,
+\begin{align} \label{eq-3}
+    E(Y^2)=10
+\end{align}
+\end{frame}
+\begin{frame}
+\frametitle{Solution}
+Also,
+\begin{align}
+    Cov(X,Y)=E(XY)-E(X)E(Y)
+\end{align}
+Substituting given values, we get,
+\begin{align}
+    1/2=E(XY)-(3)(3)
+\end{align}
+So,
+\begin{align} \label{eq-4}
+    E(XY)=19/2
+\end{align}
+Let $Z$ be a random variable defined as
+\begin{align} \label{eq-5}
+    Z=X-Y
+\end{align}
+Then using \eqref{eq-1},
+\begin{align} \label{eq-6}
+    E(Z)=E(X-Y)=E(X)-E(Y)=0
+\end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution}
+Now, using \eqref{eq-6}
+\begin{align}
+    Var(Z)=E(Z^2)-(E(Z))^2=E(Z^2)
+\end{align}
+\begin{align}
+    Var(Z)=E((X-Y)^2)
+\end{align}
+\begin{align}
+    Var(Z)=E(X^2)+E(Y^2)-2E(XY)
+\end{align}
+Using \eqref{eq-2}, \eqref{eq-3} and \eqref{eq-4},
+\begin{align}
+    Var(Z)=10+10-2 \times 19/2
+\end{align}
+\begin{align} \label{eq-7}
+    Var(Z)=1
+\end{align}
+\end{frame}
+\begin{frame}
+\frametitle{Chebychev's Inequality}
+\begin{theorem}
+(Chebychev's Inequality)\ Let T be an arbitrary random variable, with finite mean E(T), then for all $a>0$,
+\begin{align}
+    \pr{|T-E(T)| \geq a} \leq \dfrac{Var(T)}{a^2}
+\end{align}
+\end{theorem}
+
+Proof: \\
+Let T be a random variable with probablility distribution function $f(T)$ and $a>0$ be any real number.
+Then,
+\begin{align}
+    \pr{|T-E(T)| \geq a}= \int_{-\infty}^{-E(T)-a}f(T)dT +  \int_{E(T)+a}^{\infty}f(T)dT
+\end{align}
+\begin{align} \label{eq-8}
+    \pr{|T-E(T)| \geq a}= \int_{|T-E(T)| \geq a}f(T)dT
+\end{align}
+\end{frame}
+\begin{frame}
+\frametitle{}
+Now,
+\begin{align}
+    Var(T)= \int_{-\infty}^{\infty}(T-E(T))^2f(T)dT \nonumber \\ \geq \int_{|T-E(T)|\geq a}(T-E(T))^2f(T)dT \nonumber \\ \geq a^2\int_{|T-E(T)|\geq a}f(T)dT
+\end{align}
+So, we finally get,
+\begin{align}
+    Var(T) \geq a^2\int_{|T-E(T)|\geq a}f(T)dT
+\end{align}
+Using \eqref{eq-8},
+\begin{align}
+    Var(T) \geq a^2\pr{|T-E(T)| \geq a}
+\end{align}
+Or,
+\begin{align}
+    \pr{|T-E(T)| \geq a} \leq \dfrac{Var(T)}{a^2}
+\end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd.}
+Applying Chebychev's Inequality for $Z$ with $a=6$, we get,
+\begin{align}
+    \pr{|Z-E(Z)| \geq 6} \leq \dfrac{Var(Z)}{6^2}
+\end{align}
+Using \eqref{eq-6} and \eqref{eq-7},
+\begin{align}
+    \pr{|Z-0| \geq 6} \leq \dfrac{1}{36}
+\end{align}
+As $Z=X-Y$,
+\begin{align}
+    \pr{|X-Y| \geq 6} \leq \dfrac{1}{36}
+\end{align}
+So, option 1 is correct.
+\end{frame}
+
+\end{document}
