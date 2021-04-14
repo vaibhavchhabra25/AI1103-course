@@ -154,6 +154,14 @@ https://github.com/vaibhavchhabra25/AI1103-course/blob/main/Assignment-5/main.te
     \end{align}
 And we write as $n \to \infty$, $X_n \to Y$ in probability.
 \end{definition}
+\begin{theorem}
+    (Strong Law of Large Numbers)\\
+    Let $X_1, X_2, \cdot \cdot \cdot$ be a sequence of i.i.d. random variables, each having finite mean $E(X_i)$. Then for any $\epsilon >0$,
+    \begin{align}
+        \lim_{n \to \infty}\pr{\left|\dfrac{1}{n}\sum_{i=1}^nX_i - E(X_i)\right|\geq \epsilon}=0
+    \end{align}
+    Or, $\dfrac{1}{n}\sum_{i=1}^nX_i$ converges in probability to $E(X_i)$.
+\end{theorem}
 Given,
 \begin{align} 
     E(X_i)&=0 
@@ -167,17 +175,35 @@ Also, we know that,
 \end{align}
 Putting given values, we get,
 \begin{align} \label{c}
-    E(X_i^2)&=1+0^2=1
+    E(X_i^2)&=1+0^2=1 \\
+    \implies E(X_i^2)&=1
 \end{align}
-\begin{theorem}
-    (Strong Law of Large Numbers)\\
-    Let $X_1, X_2, \cdot \cdot \cdot$ be a sequence of i.i.d. random variables, each having finite mean $E(X_i)$. Then for any $\epsilon >0$,
-    \begin{align}
-        \lim_{n \to \infty}\pr{\left|\dfrac{1}{n}\sum_{i=1}^nX_i - E(X_i)\right|\geq \epsilon}=0
-    \end{align}
-    Or, $\dfrac{1}{n}\sum_{i=1}^nX_i$ converges in probability to $E(X_i)$.
-\end{theorem}
-As $\{X_i\}$ is sequence of i.i.d. random variables, $\{X_i^2\}$ must also be a sequence of i.i.d. random variables and $E(X_i^2)$ is also finite.
+So, $E(X_i^2)$ is finite.\\
+As $\{X_i\}$ is sequence of i.i.d. random variables, it follows the following conditions $\forall x,x_i \in \mathbb{R}$:
+\begin{enumerate}
+    \item $\pr{X_1 \leq x}=\pr{X_k \leq x} \ \forall k \in \{1,2,3 \cdot \cdot     \cdot n\}$
+    \item $\pr{X_1 \leq x_1, X_2 \leq x_2 \cdot \cdot \cdot X_n \leq x_n } =\\
+        \pr{X_1 \leq x_1} \cdot \pr{X_2 \leq x_2} \cdot \cdot \cdot \pr{X_n \leq x_n}$
+\end{enumerate}
+We can rewrite (1) as
+\begin{align}
+    &\pr{X_1^2 \leq x^2}=\pr{X_k^2 \leq x^2}
+\end{align}
+Putting $x^2=y$, we get,
+\begin{align} \label{d}
+    \pr{X_1^2 \leq y}=\pr{X_k^2 \leq y}
+\end{align}
+Also, we can rewrite (2) as
+\begin{align}
+    &\pr{X_1^2 \leq x_1^2, X_2^2 \leq x_2^2 \cdot \cdot \cdot X_n^2 \leq x_n^2 } = \nonumber \\
+    &\pr{X_1^2 \leq x_1^2} \cdot \pr{X_2^2 \leq x_2^2} \cdot \cdot \cdot \pr{X_n^2 \leq x_n^2}
+\end{align}
+Putting $x_i^2=y_i$, we get,
+\begin{align} \label{e}
+    &\pr{X_1^2 \leq y_1, X_2^2 \leq y_2 \cdot \cdot \cdot X_n^2 \leq y_n } = \nonumber \\
+    &\pr{X_1^2 \leq y_1} \cdot \pr{X_2^2 \leq y_2} \cdot \cdot \cdot \pr{X_n^2 \leq y_n}
+\end{align}
+By \eqref{d} and \eqref{e}, $\{X_i^2\}$ must also be a sequence of i.i.d. random variables.\\
 So, we can apply S.L.L.N. to this sequence.\\
 Then, $\dfrac{1}{n}\sum_{i=1}^nX_i^2$ converges in probability to $E(X_i^2)$.\\
 Or, $\dfrac{1}{n}\sum_{i=1}^nX_i^2 \to 1$ in probability.\\
@@ -193,7 +219,7 @@ Then,
     \implies E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{E(X_1)+E(X_2)+ \cdot \cdot \cdot +E(X_n)}
 \end{align}
 Using \eqref{a}
-\begin{align} \label{e}
+\begin{align}
     E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{0} =0
 \end{align}
 Now,
