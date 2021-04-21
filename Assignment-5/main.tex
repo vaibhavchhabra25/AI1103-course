@@ -175,35 +175,60 @@ Also, we know that,
 \end{align}
 Putting given values, we get,
 \begin{align} \label{c}
-    E(X_i^2)&=1+0^2=1 \\
+    E(X_i^2)&=1+0^2\\
     \implies E(X_i^2)&=1
 \end{align}
 So, $E(X_i^2)$ is finite.\\
+Let $F_{X_i}(x)$ be the c.d.f. for the random variable $X_i$.
 As $\{X_i\}$ is sequence of i.i.d. random variables, it follows the following conditions $\forall x,x_i \in \mathbb{R}$:
 \begin{enumerate}
-    \item $\pr{X_1 \leq x}=\pr{X_k \leq x} \ \forall k \in \{1,2,3 \cdot \cdot     \cdot n\}$
-    \item $\pr{X_1 \leq x_1, X_2 \leq x_2 \cdot \cdot \cdot X_n \leq x_n } =\\
-        \pr{X_1 \leq x_1} \cdot \pr{X_2 \leq x_2} \cdot \cdot \cdot \pr{X_n \leq x_n}$
+    \item $F_{X_1}(x)=F_{X_2}(x)=\dots=F_{X_n}(x)=F(x) $
+    \item $F_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n)=F(x_1)F(x_2) \dots F(x_n)$
 \end{enumerate}
-We can rewrite (1) as
+Let $Y_i=X_i^2$. Then for $y \geq 0$,
 \begin{align}
-    &\pr{X_1^2 \leq x^2}=\pr{X_k^2 \leq x^2}
+    F_{Y_i}(y)&=\pr{Y_i \leq y}\\
+    \implies F_{Y_i}(y)&=\pr{X_i^2 \leq y}\\
+    \label{e}
+    \implies F_{Y_i}(y)&=\pr{-\sqrt{y} \leq X_i \leq \sqrt{y}}\\
+    \implies F_{Y_i}(y)&=\pr{X_i \leq \sqrt{y}}-\pr{X_i \leq -\sqrt{y}}\\
+    \implies F_{Y_i}(y)&=F_{X_i}(\sqrt{y})-F_{X_i}(-\sqrt{y})
 \end{align}
-Putting $x^2=y$, we get,
+Using (1),
 \begin{align} \label{d}
-    \pr{X_1^2 \leq y}=\pr{X_k^2 \leq y}
+    F_{Y_i}(y)&=F(\sqrt{y})-F(-\sqrt{y})
 \end{align}
-Also, we can rewrite (2) as
+So, by \eqref{d},
+\begin{align} \label{f}
+    F_{X_1^2}(y)=F_{X_2^2}(y)=\dots=F_{X_n^2}(y)=F_1(y)
+\end{align}
+where $F_1(y)$ is the c.d.f. of $Y_i=X_i^2$.\\
+Now, for $y_i\geq0$, consider
 \begin{align}
-    &\pr{X_1^2 \leq x_1^2, X_2^2 \leq x_2^2 \cdot \cdot \cdot X_n^2 \leq x_n^2 } = \nonumber \\
-    &\pr{X_1^2 \leq x_1^2} \cdot \pr{X_2^2 \leq x_2^2} \cdot \cdot \cdot \pr{X_n^2 \leq x_n^2}
+    &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n) \nonumber\\
+    &=\pr{Y_1 \leq y_1,Y_2 \leq y_2,\dots,Y_n \leq y_n}\\
+    &=\pr{X_1^2 \leq y_1,X_2^2 \leq y_2,\dots,X_n^2 \leq y_n}
 \end{align}
-Putting $x_i^2=y_i$, we get,
-\begin{align} \label{e}
-    &\pr{X_1^2 \leq y_1, X_2^2 \leq y_2 \cdot \cdot \cdot X_n^2 \leq y_n } = \nonumber \\
-    &\pr{X_1^2 \leq y_1} \cdot \pr{X_2^2 \leq y_2} \cdot \cdot \cdot \pr{X_n^2 \leq y_n}
+\begin{align}
+    =\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1},-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}, \nonumber\\
+    \dots,-\sqrt{y_n} \leq X_n \leq \sqrt{y_n}})
 \end{align}
-By \eqref{d} and \eqref{e}, $\{X_i^2\}$ must also be a sequence of i.i.d. random variables.\\
+Since $X_1,X_2,\dots,X_n$ are independent,
+\begin{align}
+    &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n) \nonumber\\
+    &=\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1}} \pr{-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}} \nonumber\\
+    &\hspace{2cm} \dots \pr{-\sqrt{y_n} \leq X_n \leq \sqrt{y_n}}
+\end{align}
+Using \eqref{e} and \eqref{f},
+\begin{align}
+    F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n)&=F_{Y_1}(y_1) F_{Y_2}(y_2)\dots F_{Y_n}(y_n)\\
+    &=F_1(y_1) F_1(y_2) \dots F_1(y_n)
+\end{align}
+So,
+\begin{align} \label{g}
+    F_{X_1^2,X_2^2,\dots,X_n^2}(y_1,y_2,\dots,y_n)=F_1(y_1) F_1(y_1)\dots F_1(y_n)
+\end{align}
+By \eqref{f} and \eqref{g}, $\{X_i^2\}$ must also be a sequence of i.i.d. random variables.\\
 So, we can apply S.L.L.N. to this sequence.\\
 Then, $\dfrac{1}{n}\sum_{i=1}^nX_i^2$ converges in probability to $E(X_i^2)$.\\
 Or, $\dfrac{1}{n}\sum_{i=1}^nX_i^2 \to 1$ in probability.\\
@@ -216,7 +241,7 @@ Now, we define
 Then,
 \begin{align}
     E(Y_n) &= \dfrac{1}{n^{3/4}}E\brak{\sum_{i=1}^nX_i} \\
-    \implies E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{E(X_1)+E(X_2)+ \cdot \cdot \cdot +E(X_n)}
+    \implies E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{E(X_1)+E(X_2)+ \dots +E(X_n)}
 \end{align}
 Using \eqref{a}
 \begin{align}
@@ -225,15 +250,15 @@ Using \eqref{a}
 Now,
 \begin{align}
     V(Y_n) &= V\brak{\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i} \\
-    \implies V(Y_n) &= \dfrac{1}{n^{3/2}}V\brak{X_1+X_2+ \cdot \cdot \cdot +X_n}
+    \implies V(Y_n) &= \dfrac{1}{n^{3/2}}V\brak{X_1+X_2+ \dots +X_n}
 \end{align}
 As $X_1, X_2, \cdot \cdot \cdot X_n$ are independent of each other,
 \begin{align}
-    V(Y_n) &= \dfrac{1}{n^{3/2}}\brak{V(X_1)+V(X_2)+ \cdot \cdot \cdot +V(X_n)}
+    V(Y_n) &= \dfrac{1}{n^{3/2}}\brak{V(X_1)+V(X_2)+ \dots +V(X_n)}
 \end{align}
 Using \eqref{b}
 \begin{align}
-    V(Y_n)=\dfrac{1}{n^{3/2}}\brak{1+1+\cdot \cdot \cdot+1}=\dfrac{1}{n^{3/2}}\times n=\dfrac{1}{n^{1/2}}
+    V(Y_n)=\dfrac{1}{n^{3/2}}\brak{1+1+ \dots +1}=\dfrac{1}{n^{3/2}}\times n=\dfrac{1}{n^{1/2}}
 \end{align}
 Now for any $\epsilon>0$, consider the probability
 \begin{align}
