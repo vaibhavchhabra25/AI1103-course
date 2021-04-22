@@ -154,126 +154,133 @@ https://github.com/vaibhavchhabra25/AI1103-course/blob/main/Assignment-5/main.te
     \end{align}
 And we write as $n \to \infty$, $X_n \to Y$ in probability.
 \end{definition}
-\begin{theorem}
-    (Strong Law of Large Numbers)\\
-    Let $X_1, X_2, \cdot \cdot \cdot$ be a sequence of i.i.d. random variables, each having finite mean $E(X_i)$. Then for any $\epsilon >0$,
-    \begin{align}
-        \lim_{n \to \infty}\pr{\left|\dfrac{1}{n}\sum_{i=1}^nX_i - E(X_i)\right|\geq \epsilon}=0
-    \end{align}
-    Or, $\dfrac{1}{n}\sum_{i=1}^nX_i$ converges in probability to $E(X_i)$.
-\end{theorem}
-Given,
-\begin{align} 
-    E(X_i)&=0 
-    \label{a}\\
-    V(X_i)&=1
-    \label{b}
-\end{align}
-Also, we know that,
-\begin{align}
-    E(X_i^2)=V(X_i)+(E(X_i))^2
-\end{align}
-Putting given values, we get,
-\begin{align} \label{c}
-    E(X_i^2)&=1+0^2\\
-    \implies E(X_i^2)&=1
-\end{align}
-So, $E(X_i^2)$ is finite.\\
-Let $F_{X_i}(x)$ be the c.d.f. for the random variable $X_i$.
-As $\{X_i\}$ is sequence of i.i.d. random variables, it follows the following conditions $\forall x,x_i \in \mathbb{R}$:
 \begin{enumerate}
-    \item $F_{X_1}(x)=F_{X_2}(x)=\dots=F_{X_n}(x)=F(x) $
-    \item $F_{X_1,X_2,\dots,X_n}(x_1,x_2,\dots,x_n)=F(x_1)F(x_2) \dots F(x_n)$
+    \item 
+        \begin{theorem}
+            (Strong Law of Large Numbers)\\
+            Let $X_1, X_2, \cdot \cdot \cdot$ be a sequence of i.i.d. random variables, each having finite mean $E(X_i)$. Then for any $\epsilon >0$,
+            \begin{align}
+                \lim_{n \to \infty}\pr{\left|\dfrac{1}{n}\sum_{i=1}^nX_i - E(X_i)\right|\geq \epsilon}=0
+            \end{align}
+            Or, $\dfrac{1}{n}\sum_{i=1}^nX_i$ converges in probability to $E(X_i)$.
+        \end{theorem}
+        Given,
+        \begin{align} 
+            E(X_i)&=0 
+            \label{a}\\
+            V(X_i)&=1
+            \label{b}
+        \end{align}
+        Also, we know that,
+        \begin{align}
+            E(X_i^2)=V(X_i)+(E(X_i))^2
+        \end{align}
+        Putting given values, we get,
+        \begin{align} \label{c}
+            E(X_i^2)&=1+0^2\\
+            \implies E(X_i^2)&=1
+        \end{align}
+        So, $E(X_i^2)$ is finite.\\
+        Let $F_{X_i}(x)$ be the c.d.f. for the random variable $X_i$.
+        As $\{X_i\}$ is sequence of i.i.d. random variables, it follows the following conditions $\forall x,x_i \in \mathbb{R}$:
+        \begin{enumerate}
+            \item $F_{X_1}(x)=F_{X_2}(x)=\dots=F_{X_n}(x)=F(x) $
+            \item $F_{X_1,X_2\dots X_n}(x_1,x_2\dots x_n)=F(x_1)F(x_2) \dots F(x_n)$
+        \end{enumerate}
+        Let $Y_i=X_i^2$. Then for $y \geq 0$,
+        \begin{align}
+            F_{Y_i}(y)&=\pr{Y_i \leq y}\\
+            \implies F_{Y_i}(y)&=\pr{X_i^2 \leq y}\\
+            \label{e}
+            \implies F_{Y_i}(y)&=\pr{-\sqrt{y} \leq X_i \leq \sqrt{y}}\\
+            \implies F_{Y_i}(y)&=\pr{X_i \leq \sqrt{y}}-\pr{X_i \leq -\sqrt{y}}\\
+            \implies F_{Y_i}(y)&=F_{X_i}(\sqrt{y})-F_{X_i}(-\sqrt{y})
+        \end{align}
+        Using (a),
+        \begin{align} \label{d}
+            F_{Y_i}(y)&=F(\sqrt{y})-F(-\sqrt{y})
+        \end{align}
+        So, by \eqref{d},
+        \begin{align} \label{f}
+            F_{X_1^2}(y)=F_{X_2^2}(y)=\dots=F_{X_n^2}(y)=F_1(y)
+        \end{align}
+        where $F_1(y)$ is the c.d.f. of $Y_i=X_i^2$.\\
+        Now, for $y_i\geq0$, consider
+        \begin{align}
+            &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n) \nonumber\\
+            &=\pr{Y_1 \leq y_1,Y_2 \leq y_2,\dots,Y_n \leq y_n}
+        \end{align}
+        \begin{align}
+            =&\pr{X_1^2 \leq y_1,X_2^2 \leq y_2,\dots,X_n^2 \leq y_n}\\
+            =&\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1},-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}, \nonumber\\
+            &\dots,-\sqrt{y_n} \leq X_n \leq \sqrt{y_n}})
+        \end{align}
+        Since $X_1,X_2,\dots,X_n$ are independent,
+        \begin{align}
+            &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n) \nonumber\\
+            &=\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1}} \pr{-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}} \nonumber\\
+            &\hspace{2cm} \dots \pr{-\sqrt{y_n} \leq X_n \leq \sqrt{y_n}}
+        \end{align}
+        Using \eqref{e} and \eqref{f},
+        \begin{align}
+            F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n)&=F_{Y_1}(y_1) F_{Y_2}(y_2)\dots F_{Y_n}(y_n)\\
+            &=F_1(y_1) F_1(y_2) \dots F_1(y_n)
+        \end{align}
+        So,
+        \begin{align} \label{g}
+            F_{X_1^2,X_2^2,\dots,X_n^2}(y_1,y_2,\dots,y_n)=F_1(y_1) F_1(y_1)\dots F_1(y_n)
+        \end{align}
+        By \eqref{f} and \eqref{g}, $\{X_i^2\}$ must also be a sequence of i.i.d. random variables.\\
+        So, we can apply S.L.L.N. to this sequence.\\
+        Then, $\dfrac{1}{n}\sum_{i=1}^nX_i^2$ converges in probability to $E(X_i^2)$.\\
+        Or, $\dfrac{1}{n}\sum_{i=1}^nX_i^2 \to 1$ in probability.\\
+        Thus, option 1 is wrong.
+    \item
+        Now, we define
+        \begin{align}
+            Y_n=\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i
+        \end{align}
+        Then,
+        \begin{align}
+            E(Y_n) &= \dfrac{1}{n^{3/4}}E\brak{\sum_{i=1}^nX_i} \\
+            \implies E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{E(X_1)+E(X_2)+ \dots +E(X_n)}
+        \end{align}
+        Using \eqref{a}
+        \begin{align}
+            E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{0} =0
+        \end{align}
+        Now,
+        \begin{align}
+            V(Y_n) &= V\brak{\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i} \\
+            \implies V(Y_n) &= \dfrac{1}{n^{3/2}}V\brak{X_1+X_2+ \dots +X_n}
+        \end{align}
+        As $X_1, X_2, \cdot \cdot \cdot X_n$ are independent of each other,
+        \begin{align}
+            V(Y_n) &= \dfrac{1}{n^{3/2}}\brak{V(X_1)+V(X_2)+ \dots +V(X_n)}
+        \end{align}
+        Using \eqref{b}
+        \begin{align}
+            V(Y_n)=\dfrac{1}{n^{3/2}}\brak{1+1+ \dots +1}=\dfrac{1}{n^{3/2}}\times n=\dfrac{1}{n^{1/2}}
+        \end{align}
+        Now for any $\epsilon>0$, consider the probability
+        \begin{align}
+            \pr{|Y_n-0|\geq \epsilon}=\pr{|Y_n-E(Y_n)|\geq \epsilon}
+        \end{align}
+        Applying Chebyschev's inequality here, we get,
+        \begin{align}
+            \pr{|Y_n-0|\geq \epsilon} \leq \dfrac{V(Y_n)}{\epsilon^2} = \dfrac{1}{n^{1/2}\epsilon^2}
+        \end{align}
+        So,
+        \begin{align}
+            \lim_{n \to \infty}\pr{|Y_n-0|\geq \epsilon} \leq \lim_{n \to \infty }\dfrac{1}{n^{1/2}\epsilon^2}=0\\
+            \implies \lim_{n \to \infty}\pr{\left | \dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i - 0 \right|\geq \epsilon}=0
+        \end{align}
+        So, $\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i \to 0$ in probability.\\
+        Thus, option 2 is correct.
+    \item
+    \item
+        As proved for option (1), $\dfrac{1}{n}\sum_{i=1}^nX_i^2 \to 1$ in probability.
+        So option 4 is correct.
 \end{enumerate}
-Let $Y_i=X_i^2$. Then for $y \geq 0$,
-\begin{align}
-    F_{Y_i}(y)&=\pr{Y_i \leq y}\\
-    \implies F_{Y_i}(y)&=\pr{X_i^2 \leq y}\\
-    \label{e}
-    \implies F_{Y_i}(y)&=\pr{-\sqrt{y} \leq X_i \leq \sqrt{y}}\\
-    \implies F_{Y_i}(y)&=\pr{X_i \leq \sqrt{y}}-\pr{X_i \leq -\sqrt{y}}\\
-    \implies F_{Y_i}(y)&=F_{X_i}(\sqrt{y})-F_{X_i}(-\sqrt{y})
-\end{align}
-Using (1),
-\begin{align} \label{d}
-    F_{Y_i}(y)&=F(\sqrt{y})-F(-\sqrt{y})
-\end{align}
-So, by \eqref{d},
-\begin{align} \label{f}
-    F_{X_1^2}(y)=F_{X_2^2}(y)=\dots=F_{X_n^2}(y)=F_1(y)
-\end{align}
-where $F_1(y)$ is the c.d.f. of $Y_i=X_i^2$.\\
-Now, for $y_i\geq0$, consider
-\begin{align}
-    &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n) \nonumber\\
-    &=\pr{Y_1 \leq y_1,Y_2 \leq y_2,\dots,Y_n \leq y_n}\\
-    &=\pr{X_1^2 \leq y_1,X_2^2 \leq y_2,\dots,X_n^2 \leq y_n}
-\end{align}
-\begin{align}
-    =\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1},-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}, \nonumber\\
-    \dots,-\sqrt{y_n} \leq X_n \leq \sqrt{y_n}})
-\end{align}
-Since $X_1,X_2,\dots,X_n$ are independent,
-\begin{align}
-    &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n) \nonumber\\
-    &=\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1}} \pr{-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}} \nonumber\\
-    &\hspace{2cm} \dots \pr{-\sqrt{y_n} \leq X_n \leq \sqrt{y_n}}
-\end{align}
-Using \eqref{e} and \eqref{f},
-\begin{align}
-    F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n)&=F_{Y_1}(y_1) F_{Y_2}(y_2)\dots F_{Y_n}(y_n)\\
-    &=F_1(y_1) F_1(y_2) \dots F_1(y_n)
-\end{align}
-So,
-\begin{align} \label{g}
-    F_{X_1^2,X_2^2,\dots,X_n^2}(y_1,y_2,\dots,y_n)=F_1(y_1) F_1(y_1)\dots F_1(y_n)
-\end{align}
-By \eqref{f} and \eqref{g}, $\{X_i^2\}$ must also be a sequence of i.i.d. random variables.\\
-So, we can apply S.L.L.N. to this sequence.\\
-Then, $\dfrac{1}{n}\sum_{i=1}^nX_i^2$ converges in probability to $E(X_i^2)$.\\
-Or, $\dfrac{1}{n}\sum_{i=1}^nX_i^2 \to 1$ in probability.\\
-Thus, option 1 is wrong and option 4 is correct.
-\vspace{0.3cm}\\
-Now, we define
-\begin{align}
-    Y_n=\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i
-\end{align}
-Then,
-\begin{align}
-    E(Y_n) &= \dfrac{1}{n^{3/4}}E\brak{\sum_{i=1}^nX_i} \\
-    \implies E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{E(X_1)+E(X_2)+ \dots +E(X_n)}
-\end{align}
-Using \eqref{a}
-\begin{align}
-    E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{0} =0
-\end{align}
-Now,
-\begin{align}
-    V(Y_n) &= V\brak{\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i} \\
-    \implies V(Y_n) &= \dfrac{1}{n^{3/2}}V\brak{X_1+X_2+ \dots +X_n}
-\end{align}
-As $X_1, X_2, \cdot \cdot \cdot X_n$ are independent of each other,
-\begin{align}
-    V(Y_n) &= \dfrac{1}{n^{3/2}}\brak{V(X_1)+V(X_2)+ \dots +V(X_n)}
-\end{align}
-Using \eqref{b}
-\begin{align}
-    V(Y_n)=\dfrac{1}{n^{3/2}}\brak{1+1+ \dots +1}=\dfrac{1}{n^{3/2}}\times n=\dfrac{1}{n^{1/2}}
-\end{align}
-Now for any $\epsilon>0$, consider the probability
-\begin{align}
-    \pr{|Y_n-0|\geq \epsilon}=\pr{|Y_n-E(Y_n)|\geq \epsilon}
-\end{align}
-Applying Chebyschev's inequality here, we get,
-\begin{align}
-    \pr{|Y_n-0|\geq \epsilon} \leq \dfrac{V(Y_n)}{\epsilon^2} = \dfrac{1}{n^{1/2}\epsilon^2}
-\end{align}
-So,
-\begin{align}
-    \lim_{n \to \infty}\pr{|Y_n-0|\geq \epsilon} \leq \lim_{n \to \infty }\dfrac{1}{n^{1/2}\epsilon^2}=0\\
-    \implies \lim_{n \to \infty}\pr{\left | \dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i - 0 \right|\geq \epsilon}=0
-\end{align}
-So, $\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i \to 0$ in probability.\\
-Thus, option 2 is also correct.\\
 So the answer must be options 2,4.
 \end{document}
