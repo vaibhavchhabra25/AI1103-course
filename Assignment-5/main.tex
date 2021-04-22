@@ -217,18 +217,20 @@ And we write as $n \to \infty$, $X_n \to Y$ in probability.
         \end{align}
         Since $X_1,X_2,\dots,X_n$ are independent,
         \begin{align}
-            &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n) \nonumber\\
-            &=\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1}} \pr{-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}} \nonumber\\
+            &F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n)= \nonumber\\
+            &\pr{-\sqrt{y_1} \leq X_1 \leq \sqrt{y_1}} \pr{-\sqrt{y_2} \leq X_2 \leq \sqrt{y_2}} \nonumber\\
             &\hspace{2cm} \dots \pr{-\sqrt{y_n} \leq X_n \leq \sqrt{y_n}}
         \end{align}
         Using \eqref{e} and \eqref{f},
         \begin{align}
-            F_{Y_1,Y_2,\dots,Y_n}(y_1,y_2,\dots,y_n)&=F_{Y_1}(y_1) F_{Y_2}(y_2)\dots F_{Y_n}(y_n)\\
+            F_{Y_1,Y_2,\dots,Y_n}&(y_1,y_2,\dots,y_n) \nonumber \\
+            &=F_{Y_1}(y_1) F_{Y_2}(y_2)\dots F_{Y_n}(y_n)\\
             &=F_1(y_1) F_1(y_2) \dots F_1(y_n)
         \end{align}
         So,
         \begin{align} \label{g}
-            F_{X_1^2,X_2^2,\dots,X_n^2}(y_1,y_2,\dots,y_n)=F_1(y_1) F_1(y_1)\dots F_1(y_n)
+            F_{X_1^2,X_2^2,\dots,X_n^2}&(y_1,y_2,\dots,y_n)\nonumber \\
+            &=F_1(y_1) F_1(y_1)\dots F_1(y_n)
         \end{align}
         By \eqref{f} and \eqref{g}, $\{X_i^2\}$ must also be a sequence of i.i.d. random variables.\\
         So, we can apply S.L.L.N. to this sequence.\\
@@ -243,7 +245,7 @@ And we write as $n \to \infty$, $X_n \to Y$ in probability.
         Then,
         \begin{align}
             E(Y_n) &= \dfrac{1}{n^{3/4}}E\brak{\sum_{i=1}^nX_i} \\
-            \implies E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{E(X_1)+E(X_2)+ \dots +E(X_n)}
+            \implies E(Y_n) &= \dfrac{1}{n^{3/4}}\brak{E(X_1)+E(X_2) \dots E(X_n)}
         \end{align}
         Using \eqref{a}
         \begin{align}
