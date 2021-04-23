@@ -280,6 +280,34 @@ And we write as $n \to \infty$, $X_n \to Y$ in probability.
         So, $\dfrac{1}{n^{3/4}}\sum_{i=1}^nX_i \to 0$ in probability.\\
         Thus, option 2 is correct.
     \item
+        \begin{definition}
+        (Convergence in Distribution)\\
+        Let $X, X_1, X_2,\dots $ be random variables. Then we say that the sequence $\{X_n\}$ converges to X, if $\forall x \in R^1$ such that $\pr{X=x}=0$, we have
+        \begin{align}
+            \lim_{n \to \infty}\pr{X_n \leq x}=\pr{X \leq x}.
+        \end{align}
+        \end{definition}
+        \begin{theorem} \label{t-1}
+        If $X_n \to X$ in probability, $X_n \to X$ in distribution.
+        \end{theorem}
+        \newpage
+        \begin{theorem}
+        (Central Limit Theorem)\\
+        Let $X_1, X_2,\dots$ be i.i.d. random variables with finite mean $E(X_i)$ and finite variance $Var(X_i)$. Let $Z_n$ be defined as
+        \begin{align}
+            Z_n=\dfrac{\sum_{i=1}^nX_i-nE(X_i)}{(nVar(X_i))^{1/2}}
+        \end{align}
+         and let $Z \sim N(0,1)$.\\
+         Then as $n \to \infty$, $Z_n \to Z$ in distribution.
+        \end{theorem}
+        Let
+        \begin{align}
+            Z_n=\dfrac{\sum_{i=1}^nX_i-nE(X_i)}{(nVar(X_i))^{1/2}}=\dfrac{1}{n^{1/2}}\sum_{i=1}^nX_i
+        \end{align}
+        And, let us assume that the given option is correct.
+        Then, using theorem \ref{t-1}, $Z_n \to 0$ in probability $\implies Z_n \to 0$ in distribution.\\
+        But by Central Limit Theorem, $Z_n \to Z$ in distribution, where $Z \sim N(0,1)$.
+        So, it is a contradiction to our assumption and thus, option 3 must be wrong. 
     \item
         As proved for option (1), $\dfrac{1}{n}\sum_{i=1}^nX_i^2 \to 1$ in probability.
         So option 4 is correct.
